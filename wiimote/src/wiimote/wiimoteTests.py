@@ -11,7 +11,7 @@
 # TODO: Catch wiimote being turned off.
 
 
-from __future__ import absolute_import
+
 from . import WIIMote
 from .wiimoteExceptions import *
 from .wiiutils import *

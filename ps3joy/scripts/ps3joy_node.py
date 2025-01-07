@@ -31,7 +31,7 @@
 #  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 #  POSSIBILITY OF SUCH DAMAGE.
 
-from __future__ import print_function
+
 import roslib
 import rospy
 from diagnostic_msgs.msg import DiagnosticArray, DiagnosticStatus, KeyValue
@@ -157,8 +157,8 @@ class decoder:
         #       uinput.ABS_THROTTLE, uinput.ABS_RUDDER, uinput.ABS_WHEEL, uinput.ABS_GAS,
         #       uinput.ABS_HAT0Y, uinput.ABS_HAT1Y, uinput.ABS_HAT2Y, uinput.ABS_HAT3Y,
         #       uinput.ABS_TILT_X, uinput.ABS_TILT_Y, uinput.ABS_MISC, uinput.ABS_RZ]
-        buttons = range(0x100, 0x111)
-        axes = range(0, 20)
+        buttons = list(range(0x100, 0x111))
+        axes = list(range(0, 20))
         axmin = [0] * 20
         axmax = [255] * 20
         axfuzz = [2] * 20

@@ -1,5 +1,5 @@
 #!/usr/bin/env
-from __future__ import print_function
+
 from bluetooth import *
 
 print("Looking for compatible devices")
