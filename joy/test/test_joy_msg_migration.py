@@ -45,7 +45,7 @@ import rosbag
 import rosbagmigration
 
 import re
-from cStringIO import StringIO
+from io import StringIO
 import os
 
 import rospy
@@ -100,7 +100,7 @@ class TestJoyMsgsMigration(unittest.TestCase):
         saved_classes = roslib.genpy.generate_dynamic(saved_type,saved_full_text)
 
         self.assertTrue(saved_classes is not None, "Could not generate class from full definition file.")
-        self.assertTrue(saved_classes.has_key(saved_type), "Could not generate class from full definition file.")
+        self.assertTrue(saved_type in saved_classes, "Could not generate class from full definition file.")
 
         return saved_classes
 
@@ -121,7 +121,7 @@ class TestJoyMsgsMigration(unittest.TestCase):
         self.assertTrue(res, 'Bag not converted successfully')
 
         # Pull the first message out of the bag
-        topic, msg, t = rosbag.Bag(newbag).read_messages().next()
+        topic, msg, t = next(rosbag.Bag(newbag).read_messages())
 
         # Reserialize the new message so that floats get screwed up, etc.
         m = new_msg()

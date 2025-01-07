@@ -22,7 +22,7 @@
 #  Added calibration for nunchuk
 # ###############################################################################
 
-from __future__ import absolute_import
+
 from .wiimoteConstants import *
 from .wiiutils import *
 import numpy as np
@@ -116,7 +116,7 @@ class WIIState(object):
         # A zero means no button is down.
 
         if buttonStatus == 0:
-            for key in self.buttons.keys():
+            for key in list(self.buttons.keys()):
                 self.buttons[key] = False
                 continue
 
